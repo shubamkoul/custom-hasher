@@ -1,0 +1,36 @@
+{
+  "name": "custom-hasher",
+  "version": "1.0.0",
+  "description": "A zero-dependency Node.js module implementing a custom password hashing algorithm using bitwise transformations, Uint32Array processing, and salt generation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "example": "node example.js"
+  },
+  "keywords": [
+    "hash",
+    "password",
+    "hashing",
+    "bitwise",
+    "salt",
+    "cryptography",
+    "educational"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/custom-hasher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/custom-hasher/issues"
+  },
+  "homepage": "https://github.com/yourusername/custom-hasher#readme"
+}
