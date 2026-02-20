@@ -27,10 +27,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/custom-hasher.git"
+    "url": "https://github.com/shubamkoul/custom-hasher.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/custom-hasher/issues"
+    "url": "https://github.com/shubamkoul/custom-hasher/issues"
   },
-  "homepage": "https://github.com/yourusername/custom-hasher#readme"
+  "homepage": "https://github.com/shubamkoul/custom-hasher#readme"
 }

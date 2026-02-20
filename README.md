@@ -28,7 +28,7 @@ npm install custom-hasher
 Or clone and use locally:
 
 ```bash
-git clone https://github.com/yourusername/custom-hasher.git
+git clone https://github.com/shubamkoul/custom-hasher.git
 cd custom-hasher
 node example.js
 ```
