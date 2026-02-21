@@ -1,7 +1,5 @@
 # custom-hasher
 
-> ⚠️ **For educational purposes only.** Do **not** use this module to protect real passwords in production. Use well-audited libraries such as [bcrypt](https://www.npmjs.com/package/bcrypt), [argon2](https://www.npmjs.com/package/argon2), or Node's built-in `crypto.scrypt`.
-
 A **zero-dependency** Node.js module that demonstrates a custom password-hashing algorithm built from first principles using bitwise operations, `Uint32Array` word processing, and salt generation.
 
 ---
