@@ -289,7 +289,7 @@ function hashPassword(password, salt) {
  * @param {number} [saltLength=16] - Optional salt length.
  * @returns {string} The combined salt and hash string.
  */
-function hashSync(password, saltLength = 16) {
+function hash(password, saltLength = 16) {
   const salt = generateSalt(saltLength);
   const hash = hashPassword(password, salt);
   return `$custom$v1$${salt}$${hash}`;
@@ -302,7 +302,7 @@ function hashSync(password, saltLength = 16) {
  * @param {string} storedHash - The combined hash string.
  * @returns {boolean} True if the password matches, false otherwise.
  */
-function verifySync(password, storedHash) {
+function verify(password, storedHash) {
   if (typeof storedHash !== 'string' || typeof password !== 'string') return false;
 
   const parts = storedHash.split('$');
@@ -341,6 +341,6 @@ module.exports = {
   hashPassword,
 
   // Combined API
-  hashSync,
-  verifySync,
+  hash,
+  verify,
 };
