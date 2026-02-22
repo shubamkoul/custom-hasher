@@ -278,6 +278,51 @@ function hashPassword(password, salt) {
 }
 
 // ---------------------------------------------------------------------------
+// Combined Hash & Verify API
+// ---------------------------------------------------------------------------
+
+/**
+ * Generate a salt and hash a password, returning a single combined string.
+ * Format: $custom$v1$<salt>$<hash>
+ * 
+ * @param {string} password - The plain-text password to hash.
+ * @param {number} [saltLength=16] - Optional salt length.
+ * @returns {string} The combined salt and hash string.
+ */
+function hashSync(password, saltLength = 16) {
+  const salt = generateSalt(saltLength);
+  const hash = hashPassword(password, salt);
+  return `$custom$v1$${salt}$${hash}`;
+}
+
+/**
+ * Verify a plain-text password against a combined hash string.
+ * 
+ * @param {string} password - The plain-text password to verify.
+ * @param {string} storedHash - The combined hash string.
+ * @returns {boolean} True if the password matches, false otherwise.
+ */
+function verifySync(password, storedHash) {
+  if (typeof storedHash !== 'string' || typeof password !== 'string') return false;
+
+  const parts = storedHash.split('$');
+  // Expected format: ['', 'custom', 'v1', '<salt>', '<hash>']
+  if (parts.length !== 5 || parts[1] !== 'custom' || parts[2] !== 'v1') {
+    return false;
+  }
+
+  const salt = parts[3];
+  const expectedHash = parts[4];
+
+  try {
+    const computedHash = hashPassword(password, salt);
+    return computedHash === expectedHash;
+  } catch (err) {
+    return false;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Exports
 // ---------------------------------------------------------------------------
 
@@ -294,4 +339,8 @@ module.exports = {
   // High-level API
   generateSalt,
   hashPassword,
+
+  // Combined API
+  hashSync,
+  verifySync,
 };
